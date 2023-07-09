@@ -1,0 +1,12 @@
+.grid-container-custom {
+    display: flex;
+  }
+  
+  .grid-header-item {
+    display: inline-block;
+    width: 25%;
+  }
+
+  .grid-item-last {
+    justify-content: flex-end;
+  }

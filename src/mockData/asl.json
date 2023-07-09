@@ -1,0 +1,2265 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "ASL Enterprise Backend API's",
+        "version": "0.0.1",
+        "title": "ASL Enterprise Backend API's",
+        "contact": {
+            "name": "Mangesh Shrotey",
+            "email": "mangesh.shrotey@gmail.com"
+        },
+        "license": {
+            "name": "TEST"
+        }
+    },
+    "host": "localhost:9900",
+    "basePath": "/",
+    "tags": [
+        {
+            "name": "Manage Default Category Attributes",
+            "description": "Category Controller"
+        },
+        {
+            "name": "Manage Default Role Attributes",
+            "description": "Role Query Controller"
+        },
+        {
+            "name": "Manage Default User Attributes",
+            "description": "User Query Controller"
+        }
+    ],
+    "paths": {
+        "/category/": {
+            "post": {
+                "tags": [
+                    "Manage Default Category Attributes"
+                ],
+                "summary": "Create Category ",
+                "description": "This operation used to create Category Entity.",
+                "operationId": "createCategory",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "request",
+                        "description": "request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/CategoryRequest"
+                        }
+                    },
+                    {
+                        "name": "X-CorrelationId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-SourceChannel",
+                        "in": "header",
+                        "required": false,
+                        "type": "string",
+                        "default": "swagger"
+                    },
+                    {
+                        "name": "X-TenantId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string",
+                        "default": "swagger"
+                    },
+                    {
+                        "name": "X-TransactionId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Updated",
+                        "schema": {
+                            "$ref": "#/definitions/CategoryEntity"
+                        }
+                    },
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/category/{id}": {
+            "delete": {
+                "tags": [
+                    "Manage Default Category Attributes"
+                ],
+                "summary": "Delete Category Entity ",
+                "description": "This operation used to remove Category Entity.",
+                "operationId": "deleteCategory",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-CorrelationId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-SourceChannel",
+                        "in": "header",
+                        "required": false,
+                        "type": "string",
+                        "default": "swagger"
+                    },
+                    {
+                        "name": "X-TenantId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string",
+                        "default": "swagger"
+                    },
+                    {
+                        "name": "X-TransactionId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Updated",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Manage Default Category Attributes"
+                ],
+                "summary": "Update Category",
+                "description": "This operation used to Update Category Entity.",
+                "operationId": "updateCategory",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "fields",
+                        "description": "fields",
+                        "required": true,
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-CorrelationId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-SourceChannel",
+                        "in": "header",
+                        "required": false,
+                        "type": "string",
+                        "default": "swagger"
+                    },
+                    {
+                        "name": "X-TenantId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string",
+                        "default": "swagger"
+                    },
+                    {
+                        "name": "X-TransactionId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Updated",
+                        "schema": {
+                            "$ref": "#/definitions/CategoryEntity"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/query/role": {
+            "get": {
+                "tags": [
+                    "Manage Default Role Attributes"
+                ],
+                "summary": "List or find Role objects",
+                "description": "This operation list or find Role entities.",
+                "operationId": "listRole_1",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "description": "Comma-separated properties to be provided in response",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Requested number of resources to be provided in response",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "Requested index for start of resources to be provided in response",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "description": "Sort the result-set in ascending or descending order",
+                        "required": false,
+                        "type": "string",
+                        "default": "DESC",
+                        "enum": [
+                            "ASC",
+                            "DESC"
+                        ]
+                    },
+                    {
+                        "name": "orderBy",
+                        "in": "query",
+                        "description": "Sort results on a column defined",
+                        "required": false,
+                        "type": "string",
+                        "default": "lastUpdate"
+                    },
+                    {
+                        "name": "X-CorrelationId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-SourceChannel",
+                        "in": "header",
+                        "required": false,
+                        "type": "string",
+                        "default": "swagger"
+                    },
+                    {
+                        "name": "X-TenantId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string",
+                        "default": "swagger"
+                    },
+                    {
+                        "name": "X-TransactionId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Updated",
+                        "schema": {
+                            "$ref": "#/definitions/RoleResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/query/role/filter": {
+            "get": {
+                "tags": [
+                    "Manage Default Role Attributes"
+                ],
+                "summary": "List or find Role objects by filter",
+                "description": "This operation list or find Role entities.",
+                "operationId": "listRole",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "description": "Comma-separated properties to be provided in response",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "filterAnd",
+                        "in": "query",
+                        "description": "filter User using AND operator",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "filterOr",
+                        "in": "query",
+                        "description": "filter User using OR operator",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Requested number of resources to be provided in response",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "Requested index for start of resources to be provided in response",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "description": "Sort the result-set in ascending or descending order",
+                        "required": false,
+                        "type": "string",
+                        "default": "DESC",
+                        "enum": [
+                            "ASC",
+                            "DESC"
+                        ]
+                    },
+                    {
+                        "name": "orderBy",
+                        "in": "query",
+                        "description": "Sort results on a column defined",
+                        "required": false,
+                        "type": "string",
+                        "default": "lastUpdate"
+                    },
+                    {
+                        "name": "X-CorrelationId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-SourceChannel",
+                        "in": "header",
+                        "required": false,
+                        "type": "string",
+                        "default": "swagger"
+                    },
+                    {
+                        "name": "X-TenantId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string",
+                        "default": "swagger"
+                    },
+                    {
+                        "name": "X-TransactionId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Updated",
+                        "schema": {
+                            "$ref": "#/definitions/RoleResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/query/role/{id}": {
+            "get": {
+                "tags": [
+                    "Manage Default Role Attributes"
+                ],
+                "summary": "Retrieves a Role by ID",
+                "description": "This operation retrieves a Role entity by its ID.",
+                "operationId": "retrieveRole",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "description": "Comma-separated properties to be provided in response",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-CorrelationId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-SourceChannel",
+                        "in": "header",
+                        "required": false,
+                        "type": "string",
+                        "default": "swagger"
+                    },
+                    {
+                        "name": "X-TenantId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string",
+                        "default": "swagger"
+                    },
+                    {
+                        "name": "X-TransactionId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Updated",
+                        "schema": {
+                            "$ref": "#/definitions/RoleResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/query/user": {
+            "get": {
+                "tags": [
+                    "Manage Default User Attributes"
+                ],
+                "summary": "List or find User objects",
+                "description": "This operation list or find User entities.",
+                "operationId": "listUser_1",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "description": "Comma-separated properties to be provided in response",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Requested number of resources to be provided in response",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "Requested index for start of resources to be provided in response",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "description": "Sort the result-set in ascending or descending order",
+                        "required": false,
+                        "type": "string",
+                        "default": "DESC",
+                        "enum": [
+                            "ASC",
+                            "DESC"
+                        ]
+                    },
+                    {
+                        "name": "orderBy",
+                        "in": "query",
+                        "description": "Sort results on a column defined",
+                        "required": false,
+                        "type": "string",
+                        "default": "lastUpdate"
+                    },
+                    {
+                        "name": "X-CorrelationId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-SourceChannel",
+                        "in": "header",
+                        "required": false,
+                        "type": "string",
+                        "default": "swagger"
+                    },
+                    {
+                        "name": "X-TenantId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string",
+                        "default": "swagger"
+                    },
+                    {
+                        "name": "X-TransactionId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Updated",
+                        "schema": {
+                            "$ref": "#/definitions/UserResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/query/user/filter": {
+            "get": {
+                "tags": [
+                    "Manage Default User Attributes"
+                ],
+                "summary": "List or find User objects by filter",
+                "description": "This operation list or find User entities.",
+                "operationId": "listUser",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "description": "Comma-separated properties to be provided in response",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "filterAnd",
+                        "in": "query",
+                        "description": "filter User using AND operator",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "filterOr",
+                        "in": "query",
+                        "description": "filter User using OR operator",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Requested number of resources to be provided in response",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "Requested index for start of resources to be provided in response",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "description": "Sort the result-set in ascending or descending order",
+                        "required": false,
+                        "type": "string",
+                        "default": "DESC",
+                        "enum": [
+                            "ASC",
+                            "DESC"
+                        ]
+                    },
+                    {
+                        "name": "orderBy",
+                        "in": "query",
+                        "description": "Sort results on a column defined",
+                        "required": false,
+                        "type": "string",
+                        "default": "lastUpdate"
+                    },
+                    {
+                        "name": "X-CorrelationId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-SourceChannel",
+                        "in": "header",
+                        "required": false,
+                        "type": "string",
+                        "default": "swagger"
+                    },
+                    {
+                        "name": "X-TenantId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string",
+                        "default": "swagger"
+                    },
+                    {
+                        "name": "X-TransactionId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Updated",
+                        "schema": {
+                            "$ref": "#/definitions/UserResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/query/user/{id}": {
+            "get": {
+                "tags": [
+                    "Manage Default User Attributes"
+                ],
+                "summary": "Retrieves a User by ID",
+                "description": "This operation retrieves a User entity by its ID.",
+                "operationId": "retrieveUser",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "description": "Comma-separated properties to be provided in response",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-CorrelationId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-SourceChannel",
+                        "in": "header",
+                        "required": false,
+                        "type": "string",
+                        "default": "swagger"
+                    },
+                    {
+                        "name": "X-TenantId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string",
+                        "default": "swagger"
+                    },
+                    {
+                        "name": "X-TransactionId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Updated",
+                        "schema": {
+                            "$ref": "#/definitions/UserResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/role/": {
+            "post": {
+                "tags": [
+                    "Manage Default Role Attributes"
+                ],
+                "summary": "Create Role ",
+                "description": "This operation used to create Role Entity.",
+                "operationId": "createRole",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "request",
+                        "description": "request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UserRoleRequest"
+                        }
+                    },
+                    {
+                        "name": "X-CorrelationId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-SourceChannel",
+                        "in": "header",
+                        "required": false,
+                        "type": "string",
+                        "default": "swagger"
+                    },
+                    {
+                        "name": "X-TenantId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string",
+                        "default": "swagger"
+                    },
+                    {
+                        "name": "X-TransactionId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Updated",
+                        "schema": {
+                            "$ref": "#/definitions/RoleEntity"
+                        }
+                    },
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/role/{id}": {
+            "delete": {
+                "tags": [
+                    "Manage Default Role Attributes"
+                ],
+                "summary": "Delete Role ",
+                "description": "This operation used to remove Role Entity.",
+                "operationId": "deleteRole",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-CorrelationId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-SourceChannel",
+                        "in": "header",
+                        "required": false,
+                        "type": "string",
+                        "default": "swagger"
+                    },
+                    {
+                        "name": "X-TenantId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string",
+                        "default": "swagger"
+                    },
+                    {
+                        "name": "X-TransactionId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Updated",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Manage Default Role Attributes"
+                ],
+                "summary": "Create Role ",
+                "description": "This operation used to create Role Entity.",
+                "operationId": "create Role",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "fields",
+                        "description": "fields",
+                        "required": true,
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-CorrelationId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-SourceChannel",
+                        "in": "header",
+                        "required": false,
+                        "type": "string",
+                        "default": "swagger"
+                    },
+                    {
+                        "name": "X-TenantId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string",
+                        "default": "swagger"
+                    },
+                    {
+                        "name": "X-TransactionId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Updated",
+                        "schema": {
+                            "$ref": "#/definitions/RoleEntity"
+                        }
+                    },
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/user/": {
+            "post": {
+                "tags": [
+                    "Manage Default User Attributes"
+                ],
+                "summary": "Create User ",
+                "description": "This operation used to create User Entity.",
+                "operationId": "create User",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "request",
+                        "description": "request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    },
+                    {
+                        "name": "X-CorrelationId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-SourceChannel",
+                        "in": "header",
+                        "required": false,
+                        "type": "string",
+                        "default": "swagger"
+                    },
+                    {
+                        "name": "X-TenantId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string",
+                        "default": "swagger"
+                    },
+                    {
+                        "name": "X-TransactionId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Updated",
+                        "schema": {
+                            "$ref": "#/definitions/UserEntity"
+                        }
+                    },
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/user/login/": {
+            "post": {
+                "tags": [
+                    "Manage Default User Attributes"
+                ],
+                "summary": "Login details ",
+                "description": "use for validate user",
+                "operationId": "loginInfo",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "request",
+                        "description": "request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/LoginRequest"
+                        }
+                    },
+                    {
+                        "name": "X-CorrelationId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-SourceChannel",
+                        "in": "header",
+                        "required": false,
+                        "type": "string",
+                        "default": "swagger"
+                    },
+                    {
+                        "name": "X-TenantId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string",
+                        "default": "swagger"
+                    },
+                    {
+                        "name": "X-TransactionId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Updated",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/user/offline/{mobileNumber}": {
+            "post": {
+                "tags": [
+                    "Manage Default User Attributes"
+                ],
+                "summary": "Obtain offline access & refresh token for a client",
+                "description": "To Obtain offline access & refresh token for a client",
+                "operationId": "offlineToken",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "mobileNumber",
+                        "in": "path",
+                        "description": "mobileNumber",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-CorrelationId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-SourceChannel",
+                        "in": "header",
+                        "required": false,
+                        "type": "string",
+                        "default": "swagger"
+                    },
+                    {
+                        "name": "X-TenantId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string",
+                        "default": "swagger"
+                    },
+                    {
+                        "name": "X-TransactionId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Updated",
+                        "schema": {
+                            "$ref": "#/definitions/Token"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/user/resetPassword/": {
+            "patch": {
+                "tags": [
+                    "Manage Default User Attributes"
+                ],
+                "summary": "Reset Password  ",
+                "description": "This operation used to Reset user Password.",
+                "operationId": "Reset Password",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "resetPassword",
+                        "description": "resetPassword",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ResetPassword"
+                        }
+                    },
+                    {
+                        "name": "X-CorrelationId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-SourceChannel",
+                        "in": "header",
+                        "required": false,
+                        "type": "string",
+                        "default": "swagger"
+                    },
+                    {
+                        "name": "X-TenantId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string",
+                        "default": "swagger"
+                    },
+                    {
+                        "name": "X-TransactionId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Updated",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/user/validateUser/{mobileNumber}/{otp}": {
+            "post": {
+                "tags": [
+                    "Manage Default User Attributes"
+                ],
+                "summary": "Validate user ",
+                "description": "use to validate user",
+                "operationId": "ValidateUser",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "mobileNumber",
+                        "in": "path",
+                        "description": "mobileNumber",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "otp",
+                        "in": "path",
+                        "description": "otp",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-CorrelationId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-SourceChannel",
+                        "in": "header",
+                        "required": false,
+                        "type": "string",
+                        "default": "swagger"
+                    },
+                    {
+                        "name": "X-TenantId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string",
+                        "default": "swagger"
+                    },
+                    {
+                        "name": "X-TransactionId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Updated",
+                        "schema": {
+                            "$ref": "#/definitions/Token"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/user/{id}": {
+            "delete": {
+                "tags": [
+                    "Manage Default User Attributes"
+                ],
+                "summary": "Delete User ",
+                "description": "This operation used to remove User Entity.",
+                "operationId": "deleteUser",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-CorrelationId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-SourceChannel",
+                        "in": "header",
+                        "required": false,
+                        "type": "string",
+                        "default": "swagger"
+                    },
+                    {
+                        "name": "X-TenantId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string",
+                        "default": "swagger"
+                    },
+                    {
+                        "name": "X-TransactionId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Updated",
+                        "schema": {
+                            "$ref": "#/definitions/UserEntity"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Manage Default User Attributes"
+                ],
+                "summary": "Update User ",
+                "description": "This operation used to create User Entity.",
+                "operationId": "updateUser",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "fields",
+                        "description": "fields",
+                        "required": true,
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-CorrelationId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-SourceChannel",
+                        "in": "header",
+                        "required": false,
+                        "type": "string",
+                        "default": "swagger"
+                    },
+                    {
+                        "name": "X-TenantId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string",
+                        "default": "swagger"
+                    },
+                    {
+                        "name": "X-TransactionId",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Updated",
+                        "schema": {
+                            "$ref": "#/definitions/UserEntity"
+                        }
+                    },
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Attachment": {
+            "type": "object",
+            "properties": {
+                "attachmentType": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "href": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "isRef": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "title": "Attachment"
+        },
+        "CategoryEntity": {
+            "type": "object",
+            "properties": {
+                "attachments": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Attachment"
+                    }
+                },
+                "createdBy": {
+                    "type": "string"
+                },
+                "createdOn": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "href": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "isRoot": {
+                    "type": "boolean"
+                },
+                "lastUpdate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "lastUpdatedBy": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "parentId": {
+                    "type": "string"
+                },
+                "sequence": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "subCategories": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/CategoryEntity"
+                    }
+                },
+                "version": {
+                    "type": "string"
+                }
+            },
+            "title": "CategoryEntity"
+        },
+        "CategoryRequest": {
+            "type": "object",
+            "properties": {
+                "attachments": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Attachment"
+                    }
+                },
+                "description": {
+                    "type": "string"
+                },
+                "isRoot": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "parentId": {
+                    "type": "string"
+                },
+                "sequence": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                }
+            },
+            "title": "CategoryRequest"
+        },
+        "ContactMedium": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "phoneNumber": {
+                    "type": "string"
+                }
+            },
+            "title": "ContactMedium"
+        },
+        "LoginRequest": {
+            "type": "object",
+            "properties": {
+                "mobileNumber": {
+                    "type": "string"
+                },
+                "passCode": {
+                    "type": "string"
+                }
+            },
+            "title": "LoginRequest"
+        },
+        "Place": {
+            "type": "object",
+            "properties": {
+                "city": {
+                    "type": "string"
+                },
+                "country": {
+                    "type": "string"
+                },
+                "fullAddress": {
+                    "type": "string"
+                },
+                "locality": {
+                    "type": "string"
+                },
+                "pinCode": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                },
+                "streetName": {
+                    "type": "string"
+                }
+            },
+            "title": "Place"
+        },
+        "RelatedParty": {
+            "type": "object",
+            "properties": {
+                "href": {
+                    "type": "string",
+                    "description": "Reference of the related party"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "Unique identifier of a related party"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Role of the related party"
+                },
+                "referredType": {
+                    "type": "string",
+                    "description": "Related party Name"
+                }
+            },
+            "title": "RelatedParty",
+            "description": " A related party defines party or party role linked to a specific entity"
+        },
+        "ResetPassword": {
+            "type": "object",
+            "properties": {
+                "newPassword": {
+                    "type": "string"
+                },
+                "userId": {
+                    "type": "string"
+                }
+            },
+            "title": "ResetPassword"
+        },
+        "RoleEntity": {
+            "type": "object",
+            "properties": {
+                "CreatedBy": {
+                    "type": "string"
+                },
+                "createdOn": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "href": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "lastUpdate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "lastUpdatedBy": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "relatedParty": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/RelatedParty"
+                    }
+                },
+                "status": {
+                    "type": "string"
+                }
+            },
+            "title": "RoleEntity"
+        },
+        "RoleResponse": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Role Id"
+                },
+                "roleList": {
+                    "type": "array",
+                    "description": "role list",
+                    "items": {
+                        "$ref": "#/definitions/RoleEntity"
+                    }
+                },
+                "user": {
+                    "description": "role",
+                    "$ref": "#/definitions/RoleEntity"
+                }
+            },
+            "title": "RoleResponse"
+        },
+        "Token": {
+            "type": "object",
+            "properties": {
+                "accessToken": {
+                    "type": "string",
+                    "description": "Access Token is used for authorization"
+                },
+                "customerId": {
+                    "type": "string"
+                },
+                "refreshToken": {
+                    "type": "string",
+                    "description": "Refresh Token is used to obtain a new access token"
+                }
+            },
+            "title": "Token",
+            "description": "Holds access and refresh tokens"
+        },
+        "User": {
+            "type": "object",
+            "required": [
+                "familyName",
+                "givenName",
+                "platform",
+                "system"
+            ],
+            "properties": {
+                "contactMedium": {
+                    "description": "Contact Details(email,phoneNumber)",
+                    "$ref": "#/definitions/ContactMedium"
+                },
+                "familyName": {
+                    "type": "string",
+                    "description": "A string. Last name of the User."
+                },
+                "gender": {
+                    "type": "string",
+                    "description": "A string. Gender"
+                },
+                "givenName": {
+                    "type": "string",
+                    "description": "A string. First name of the User."
+                },
+                "maritalStatus": {
+                    "type": "string",
+                    "description": "A string. Marital status (married, divorced, widow ...)."
+                },
+                "middleName": {
+                    "type": "string",
+                    "description": "A string. Middles name or initial"
+                },
+                "passCode": {
+                    "type": "string",
+                    "description": "user  Credentials to access Application "
+                },
+                "place": {
+                    "type": "array",
+                    "description": "Address Information",
+                    "items": {
+                        "$ref": "#/definitions/Place"
+                    }
+                },
+                "platform": {
+                    "type": "string",
+                    "description": "invoking Platform , ISO, ANDROID or WEB"
+                },
+                "roleId": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "system": {
+                    "type": "string",
+                    "description": "invoking System, Customer/rider "
+                }
+            },
+            "title": "User",
+            "description": "Holds User Details "
+        },
+        "UserEntity": {
+            "type": "object",
+            "properties": {
+                "contactMedium": {
+                    "$ref": "#/definitions/ContactMedium"
+                },
+                "createdBy": {
+                    "type": "string"
+                },
+                "createdOn": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "familyName": {
+                    "type": "string"
+                },
+                "gender": {
+                    "type": "string"
+                },
+                "givenName": {
+                    "type": "string"
+                },
+                "href": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "lastUpdate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "lastUpdatedBy": {
+                    "type": "string"
+                },
+                "middleName": {
+                    "type": "string"
+                },
+                "nationality": {
+                    "type": "string"
+                },
+                "passCode": {
+                    "type": "string"
+                },
+                "place": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Place"
+                    }
+                },
+                "roleId": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "status": {
+                    "type": "string"
+                },
+                "userId": {
+                    "type": "string"
+                }
+            },
+            "title": "UserEntity"
+        },
+        "UserResponse": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "User id"
+                },
+                "user": {
+                    "description": "user",
+                    "$ref": "#/definitions/UserEntity"
+                },
+                "userList": {
+                    "type": "array",
+                    "description": "user list",
+                    "items": {
+                        "$ref": "#/definitions/UserEntity"
+                    }
+                }
+            },
+            "title": "UserResponse"
+        },
+        "UserRoleRequest": {
+            "type": "object",
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "Role Description"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Unique identifier for User Role  Name"
+                },
+                "relatedParty": {
+                    "type": "array",
+                    "description": "Related Party",
+                    "items": {
+                        "$ref": "#/definitions/RelatedParty"
+                    }
+                }
+            },
+            "title": "UserRoleRequest",
+            "description": "Holds User Role Details "
+        }
+    }
+}

@@ -1,0 +1,14 @@
+.date-picker-input {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  
+  .date-picker-icon {
+    position: absolute;
+    right: -1.5rem; /* Adjust the position as needed */
+    pointer-events: none;
+    cursor: pointer;
+  }
+  

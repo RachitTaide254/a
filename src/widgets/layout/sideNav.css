@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  
+.sideNavCustom li > a> button{
+    background-color: #0E0E23;
+    text-align: center;
+    display: flex;
+    border-radius: 0;
+    align-items: center;
+    gap: 1rem;
+    text-transform: capitalize;
+    
+}
+
+.sideNavCustom li > a.active > button {
+    background-color: #E9ECF6;
+    text-align: center;
+    display: flex;
+    border-radius: 0;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* .sideNavActiveCustom {
+    background-color: #E9ECF6;
+    text-align: center;
+    display: flex;
+    border-radius: 0;
+    align-items: center;
+    gap: 1rem;
+    
+} */
+/* 
+.sideNavCustom li > .top_curve{
+	top: -20px;
+}
+
+.sideNavCustom li > .bottom_curve{
+	bottom: -20px;	
+}
+
+.sideNavCustom li .top_curve:before,
+.sideNavCustom li .bottom_curve:before{
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #425c5a;	
+}
+
+.sideNavCustom  li .top_curve:before{
+	border-bottom-right-radius: 25px;
+}
+
+.sideNavCustom li .bottom_curve:before{
+	border-top-right-radius: 25px;
+} */
